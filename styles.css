@@ -1,4 +1,7 @@
 
+* {
+    font-family: sans-serif;
+}
 body{
     display: flex;
     flex-direction: column;
@@ -13,3 +16,31 @@ body{
     background-color: aliceblue;
     border-radius: 10px;
 }
+
+form > button{
+    background-color: white;
+    border-color: lightslategray;
+    border-radius: 3px;
+    color: black;
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 80px;
+    text-align: center;
+}
+form > button:hover {
+    background-color: lightslategray;
+}
+
+a{
+    text-decoration: none;
+}
+
+.login a,p{
+    margin: 10px;
+}
+.login a{
+    color: rgb(12, 94, 135);
+    font-weight: bold;
+}
+
