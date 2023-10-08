@@ -60,11 +60,12 @@ header{
 header a{
     color:black;
 }
-.logo{
+#logo{
     align-self: flex-start;
 }
 header a:hover{
-    text-decoration: underline;
+   
+    background-color: whitesmoke;
 }
 .fail{
     margin-left: 20%;
@@ -73,4 +74,48 @@ header a:hover{
     margin-left: 10%;
 }
 
+
+.post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+   
+    background-color: aliceblue;
+    width: 400px;  
+    
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.post-header img{
+    width: 30px;
+    height: 30px;
+    margin-right: 230px;
+}
+.post-header p{
+    font-size: 13px;
+}
+
+.post-content p{
+    text-align: left;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+    
+.post-header {
+    display: flex;
+    
+    align-items: flex-start;
+    padding: 10px; 
+}
+
+.post-image {
+    max-width: 300px;
+    max-height: 200px;
+}
 
