@@ -22,6 +22,7 @@ label{
     
 }
 
+
 form > button{
     background-color: white;
     border-color: lightslategray;
@@ -35,6 +36,12 @@ form > button{
 }
 form > button:hover {
     background-color: lightslategray;
+}
+button{
+    background-color: #ABD6F8;
+}
+button:hover{
+    background-color: darkblue;
 }
 
 a{
@@ -70,7 +77,7 @@ header a:hover{
 .fail{
     margin-left: 20%;
 }
-.post{
+.createpost{
     margin-left: 10%;
 }
 
@@ -119,3 +126,7 @@ header a:hover{
     max-height: 200px;
 }
 
+.post-footer{
+    display: flex;
+    align-items: left;
+}
