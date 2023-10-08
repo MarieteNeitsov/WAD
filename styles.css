@@ -21,8 +21,6 @@ label{
     width: 40px;
     
 }
-
-
 form > button{
     background-color: white;
     border-color: lightslategray;
@@ -81,7 +79,6 @@ header a:hover{
     margin-left: 10%;
 }
 
-
 .post{
     display: flex;
     flex-direction: column;
@@ -113,7 +110,6 @@ header a:hover{
     padding-bottom: 10px;
 }
 
-    
 .post-header {
     display: flex;
     
@@ -129,4 +125,9 @@ header a:hover{
 .post-footer{
     display: flex;
     align-items: left;
+}
+
+ul + img{
+    height: 50 px;
+    width: 50px;
 }
