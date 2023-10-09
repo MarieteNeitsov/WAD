@@ -122,7 +122,7 @@ header a:hover{
     max-height: 200px;
 }
 
-.post-footer{
+.post-footer ~ button{
     display: flex;
     align-items: left;
 }
