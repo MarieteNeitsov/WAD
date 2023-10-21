@@ -1,0 +1,72 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "text": "Post 1",
+      "author": "John Doe",
+      "create_time": "Oct 2, 2023",
+      "image": "https://cdn-adventures-live.azureedge.net/adventurescache/c/3/d/d/8/e/c3dd8e82a6fa8c5edde8f7cc70f66c9149d4f426.jpg"
+    },
+    {
+      "id": 2,
+      "text": "Post 2",
+      "author": "Jane Smith",
+      "create_time": "Oct 2, 2023",
+      "image": "https://static.visitestonia.com/images/3418988/600_400_false_false_8a03f0a9865b824467b16012aefa43c2.jpg"
+    },
+    {
+      "id": 3,
+      "text": "Post 3",
+      "author": "Alice Johnson",
+      "create_time": "Oct 2, 2023",
+      "image":"https://arhitektuuripreemiad.ee/wp-content/uploads/2020/09/TU_Delta_MBA5215_c_MarisTomba_72dpi-1920x1280.jpg"
+    },
+    {
+        "id": 4,
+        "text": "Post 4",
+        "author": "John Snow",
+        "create_time": "Oct 2, 2023",
+        "image":  "https://delta.ut.ee/wp-content/uploads/2020/02/Delta_ruumid.jpg"
+      },
+      {
+        "id": 5,
+        "text": "Post 5",
+        "author": "Mariah Smith",
+        "create_time": "Oct 2, 2023",
+        "image":  "https://majandus.ut.ee/sites/default/files/2021-12/20_okt_2021_ty_070_0.jpg"
+      },
+      {
+        "id": 6,
+        "text": "Hello everyone!!!",
+        "author": "Lisa Stone",
+        "create_time": "Oct 2, 2023"
+      },
+      {
+        "id": 7,
+        "text": "In which room the lab is today?",
+        "author": "Michael Anderson",
+        "create_time": "Oct 2, 2023"
+    
+      },
+      {
+        "id": 8,
+        "text": "When are the finals?",
+        "author": "Liam Wilson",
+        "create_time": "Oct 2, 2023"
+      },
+      {
+        "id": 9,
+        "text": "Post 9",
+        "author": "Noah Davis",
+        "create_time": "Oct 2, 2023",
+        "image": "https://eestielu.goodnews.ee/wp-content/uploads/sites/2/2014/03/Tartu-%C3%9Clikool1.jpg"
+      },
+      {
+        "id": 10,
+        "text": "Post 10",
+        "author": "Mason Garcia",
+        "create_time": "Oct 2, 2023",
+        "image": "https://www.traveller.ee/media/cache/5c/9e/5c9e2bdbf7eb3852bcc75225b9575e82.jpg"
+      }
+  ]
+}
