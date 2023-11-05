@@ -52,6 +52,7 @@ button:hover{
     width: 20px;
     height: 20px;
 }
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -68,6 +69,7 @@ button:hover{
     display: block;
   }
   .dropdown {
+    padding-right: 50px;
     position: relative;
     display: inline-block;
   }
