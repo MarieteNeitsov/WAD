@@ -3,6 +3,7 @@
     font-family: sans-serif;
 }
 body{
+    position:relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -131,11 +132,8 @@ header a:hover{
     align-items: center;
     justify-content: center;
     text-align: center;
-    
-   
     background-color: aliceblue;
     width: 400px;  
-    
     border-radius: 10px;
     margin: 20px;
 }
@@ -177,4 +175,14 @@ header a:hover{
 ul + img{
     height: 50 px;
     width: 50px;
+}
+
+.footer {
+    width: 100%;
+    position:absolute;
+    height: 50px;
+    background-image: linear-gradient(to right, #ABD6F8, #86B2D3);
+    margin: auto;
+    bottom: 0;
+    left:0;
 }
