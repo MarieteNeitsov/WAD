@@ -39,11 +39,18 @@ window.onload = function() {
                 postContent.classList.add('post-content');
                 postContent.textContent = post.text;
                 postDiv.appendChild(postContent);
-                const postFooter = document.createElement('button');
-                postFooter.type = "submit";
-                postFooter.textContent = "Like"
-                postFooter.classList.add('post-footer');
-                postDiv.appendChild(postFooter)
+                const likeButton = document.createElement('button');
+                const likeCount = document.createElement("span")
+                likeCount.innerText =0;
+                let count = 0;
+                likeButton.addEventListener('click', () => {
+                    count++;
+                    likeCount.innerText = count;
+                });
+                postDiv.appendChild(likeCount)
+                likeButton.textContent = "Like"
+                likeButton.classList.add('post-footer');
+                postDiv.appendChild(likeButton)
 
                 
                 
