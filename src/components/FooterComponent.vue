@@ -1,9 +1,9 @@
 <template>
     <footer>
         <div class = "footer">
-            <p> Copyright © 2023 postIt <br>
+            <p> Copyright © 2023 postIt </p> <br>
             <a href="mailto:example@example.com">example@example.com</a>
-            </p>
+            
         </div>
     </footer>
 </template>
@@ -19,4 +19,5 @@
     bottom: 0;
     left:0;
 }
+
 </style>
