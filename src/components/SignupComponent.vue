@@ -1,10 +1,13 @@
 <template>
     <div class="wrapper">
-        <form>
-            <label for="email">Email: </label>
-            <input type="text" id="email" v-model="input.email" />
-            <label for="password">Password: </label>
-           <input type="password" id="password" v-model="input.password" />
+        <form class="formcard">
+            <div class="label-and-input">
+                <label for="email">Email: </label>  
+                <input type="text" id="email" v-model="input.email" />
+                <label for="password">Password: </label>
+                <input type="password" id="password" v-model="input.password" />
+            </div>
+            <br>
            <button type="submit" v-on:click.prevent = "checkPassword()"> Sign up
           </button>
 
@@ -26,7 +29,7 @@
 </template>
 
 <style scoped>
-
+    
 </style>
 
 <script>
@@ -43,7 +46,10 @@ export default {
     
   },
   methods:{
-    checkPassword(){}
+    checkPassword(){
+        var regex = /^(?=[A-Z])(?=.*[a-z].*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*_).{8,15}$/
+        this.isPasswordValid = regex.test(this.input.password);
+    }
       
 }
 }
