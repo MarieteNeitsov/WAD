@@ -21,7 +21,7 @@
 <script>
 export default{
     name: 'HomeComponent',
-    probs: {
+    props: {
         post: Object
     },
     computed:{

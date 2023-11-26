@@ -1,6 +1,6 @@
-import { ctreateStore } from 'vuex'
+import { createStore } from 'vuex';
 
-export default new ctreateStore({
+export default createStore({
     state: {
         posts: [],
     }, 

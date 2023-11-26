@@ -2,7 +2,7 @@
 <template>
   <div>
       <HeaderComponent></HeaderComponent>
-      <HomeComponent v-for="post in posts" :key="post.id" :post="post"></HomeComponent>
+      <HomeComponent v-for="post in posts" :key="post.id" :post="post" />
       <button @click="resetLikes">reset likes</button>
       <FooterComponent></FooterComponent>
    </div>
