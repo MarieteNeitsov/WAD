@@ -14,7 +14,7 @@ export default createStore({
               post.likes += 1;
             }
           },
-          resetLikes(state) {
+        resetLikes(state) {
             state.posts.forEach((post) => {
               post.likes = 0;
             });

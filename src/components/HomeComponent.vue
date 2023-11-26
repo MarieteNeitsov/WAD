@@ -1,6 +1,7 @@
 <template>
     <div v-if ='post' class ='postcontainer'>
         <div class="post-header">
+            <img src="https://github.com/MarieteNeitsov/WAD/blob/main/icon.png?raw=true" alt="profile">
             <h4 class = 'author'>{{ post.author }}</h4>
             <p class ='time'>{{ post.create_time }}</p>
 
