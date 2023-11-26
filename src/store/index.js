@@ -2,7 +2,7 @@ import { createStore } from 'vuex';
 
 export default createStore({
     state: {
-        posts: [],
+        posts: []
     }, 
     mutations: {
         setPosts(state, posts){
@@ -24,7 +24,9 @@ export default createStore({
             async fetchPosts({ commit }) {
                 try {
                     let response = await fetch("./posts.json");
+                    
                     let data = await response.json();
+                    console.log(data)
                     commit('setPosts', data.reverse());
                 
                 }catch(error){
