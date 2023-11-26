@@ -29,7 +29,7 @@
       this.$store.dispatch('fetchPosts')
     },
     methods:{
-      ResetLike: function(){
+      resetLikes: function(){
         this.$store.commit("resetLikes")
       }
     }

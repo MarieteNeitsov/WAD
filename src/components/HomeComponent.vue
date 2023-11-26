@@ -36,6 +36,7 @@ export default{
     methods:{
         IncreaseLike(post){
             post.likes = post.likes +1
+        
         }
     }
 
