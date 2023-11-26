@@ -23,7 +23,7 @@ export default createStore({
         actions:{
             async fetchPosts({ commit }) {
                 try {
-                    let response = await fetch("./posts.json");
+                    let response = await fetch("https://raw.githubusercontent.com/MarieteNeitsov/WAD/main/posts.json");
                     
                     let data = await response.json();
                     console.log(data)

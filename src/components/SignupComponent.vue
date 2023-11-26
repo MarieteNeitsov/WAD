@@ -49,6 +49,13 @@ export default {
     checkPassword(){
         var regex = /^(?=[A-Z])(?=.*[a-z].*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*_).{8,15}$/
         this.isPasswordValid = regex.test(this.input.password);
+         // ^(?=[A-Z]) looks if password starts with uppercase letter 
+        // (?=.*[a-z].*[a-z]) looks for at least two lowercase letters
+        // (?=.*[A-Z]) looks for at least one uppercase letter
+        //(?=.*\d) looks for at least one digit
+        //(?=.*_)  looks for at least one underscore
+        // .{8,15} checks if length is 8-15 characters
+        // $ end of the string
     }
       
 }
