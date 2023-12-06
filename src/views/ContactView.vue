@@ -11,7 +11,7 @@ import FooterComponent from '@/components/FooterComponent.vue'
 import ContactComponent from '@/components/ContactComponent.vue';
 
 export default {
-  name: 'Contactview',
+  name: 'ContactView',
   components: {
     HeaderComponent,
     ContactComponent,

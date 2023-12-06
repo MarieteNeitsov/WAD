@@ -2,7 +2,7 @@
     <div>
         <h2>Contact us</h2>
 
-    <div class="contactform" v-if="!formSubmitted">
+    <div class="formcard" v-if="!formSubmitted">
        <form @submit.prevent="submitForm">
         <div>
             <label for="name">Name:</label>
@@ -13,7 +13,10 @@
             <input type="email" id="email" v-model="formData.email" required />
 
         </div>
-        <input type="email" id="email" v-model="formData.email" required />
+        <div>
+            <label for="message">Message:</label>
+            <textarea id="message" v-model="formData.message" required></textarea>
+        </div>
         <button type="submit">Submit</button>
     </form>
     </div>
