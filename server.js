@@ -16,6 +16,11 @@ app.use(express.json());
 app.use(cookieParser());  
 
 
+const generateJWT = (id) => {
+    return jwt.sign({ id }, "jbe7346dn8am98fnfr6gsloa4", { expiresIn: 60 * 60})
+}
+
+
 app.listen(port, () => {
     console.log("Server is listening to port " + port)
 });

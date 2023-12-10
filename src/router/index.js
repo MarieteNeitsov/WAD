@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: LoginView
+    component: HomeView
   },
   { 
   path: '/LoginView', 

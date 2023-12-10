@@ -8,7 +8,7 @@
                 <input type="password" id="password" v-model="input.password" />
             </div>
             <br>
-           <button @click="signUp"> Signup
+           <button @click="signup"> Signup
           </button>
           
 
@@ -63,7 +63,7 @@ export default {
       this.checkPassword();
 
       if (!this.isPasswordValid) {
-        return; // Stop the signup process if the password is not valid
+        return; 
       }
 
       try {
@@ -86,7 +86,7 @@ export default {
         } else {
           console.error('Signup error', response.statusText);
         }
-        
+
       } catch (error) {
         console.error('Signup error', error.message);
         
