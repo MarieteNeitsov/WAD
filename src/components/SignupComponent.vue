@@ -8,8 +8,9 @@
                 <input type="password" id="password" v-model="input.password" />
             </div>
             <br>
-           <button type="submit" v-on:click.prevent = "checkPassword()"> Sign up
+           <button @click="signUp"> Signup
           </button>
+          
 
           <div v-if="!isPasswordValid">
             <p>Password is not valid. Please follow the conditions:</p> 
@@ -56,7 +57,41 @@ export default {
         //(?=.*_)  looks for at least one underscore
         // .{8,15} checks if length is 8-15 characters
         // $ end of the string
-    }
+    },
+    async signup() {
+
+      this.checkPassword();
+
+      if (!this.isPasswordValid) {
+        return; // Stop the signup process if the password is not valid
+      }
+
+      try {
+        const response = await fetch('http://localhost:3000/auth/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          body: JSON.stringify({
+            email: this.input.email,
+            password: this.input.password,
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          this.$router.push("/");
+          console.log('Signup successful', data);
+        } else {
+          console.error('Signup error', response.statusText);
+        }
+        
+      } catch (error) {
+        console.error('Signup error', error.message);
+        
+      }
+    },
       
 }
 }

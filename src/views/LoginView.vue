@@ -1,6 +1,6 @@
 <template>
     <HeaderComponent></HeaderComponent>
-    <SignupComponent></SignupComponent>
+    <LoginComponent></LoginComponent>
     <FooterComponent></FooterComponent>
 </template>
 
@@ -8,13 +8,13 @@
   
   import HeaderComponent from '@/components/HeaderComponent.vue'
   import FooterComponent from '@/components/FooterComponent.vue'
-    import SignupComponent from '@/components/SignupComponent.vue';
+  import LoginComponent from '@/components/LoginComponent.vue';
   export default {
-    name: 'SignupView',
+    name: 'LoginView',
     components: {
       HeaderComponent,
       FooterComponent,
-      SignupComponent
+      LoginComponent
     }
   }
   </script>
