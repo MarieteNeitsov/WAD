@@ -3,9 +3,9 @@
         <form class="formcard">
             <div class="label-and-input">
                 <label for="email">Email: </label>  
-                <input type="text" id="email" v-model="input.email" />
+                <input type="email" id="email" required v-model="input.email" />
                 <label for="password">Password: </label>
-                <input type="password" id="password" v-model="input.password" />
+                <input type="password" id="password" required v-model="input.password" />
             </div>
             <br>
            <button @click="signup"> Signup
@@ -23,6 +23,9 @@
             <li>Should include the character "_"</li>
             </ul>
         </div>
+          <div v-if="isEmailInUse">
+            <p>{{ message }}</p>
+          </div>
         </form>
         
 
@@ -42,7 +45,9 @@ export default {
             email: "",
             password: ""
         },
-        isPasswordValid: true
+        isPasswordValid: true,
+        isEmailInUse: false,
+        message: '',
     }
     
   },
@@ -66,6 +71,7 @@ export default {
         return; 
       }
 
+      
       try {
         const response = await fetch('http://localhost:3000/auth/signup', {
           method: 'POST',
@@ -83,8 +89,16 @@ export default {
           const data = await response.json();
           this.$router.push("/");
           console.log('Signup successful', data);
-        } else {
-          console.error('Signup error', response.statusText);
+        } else{
+          const errorData = await response.json();
+
+            if (response.status === 400 && errorData.error === 'Email already in use') {
+                this.isEmailInUse = true;
+                this.message = 'This email is already in use';
+            } else {
+                console.error('Signup error', response.statusText);
+            }
+          
         }
 
       } catch (error) {

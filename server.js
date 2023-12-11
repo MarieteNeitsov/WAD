@@ -30,7 +30,17 @@ app.listen(port, () => {
 app.post('/auth/signup', async(req, res) => {
     try {
         const { email, password } = req.body;
-
+        
+        const existingUser = await pool.query(
+            "SELECT * FROM users WHERE email = $1",
+            [email]
+        );
+        
+        if (existingUser.rows.length > 0) {
+            
+            res.status(400).json({ error: "Email already in use" });
+            return;
+        }
         const salt = await bcrypt.genSalt(); 
         const bcryptPassword = await bcrypt.hash(password, salt) 
         const authUser = await pool.query( 
