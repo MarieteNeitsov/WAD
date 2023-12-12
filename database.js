@@ -30,7 +30,7 @@ const createTblQuery = `
 const createposttablequery = `
 CREATE TABLE IF NOT EXISTS "posts" (
     "id" SERIAL PRIMARY KEY,         
-    "title" VARCHAR(200) NOT NULL,
+    "post_date" DATE DEFAULT CURRENT_DATE,
     "body" VARCHAR(200) NOT NULL,
     "urllink" VARCHAR(200)  
 );`;
