@@ -11,6 +11,9 @@
             <button @click="LogIn" >LogIn</button>
             <button @click='this.$router.push("/SignupView")'>Signup </button>
            
+            <div v-if="errorMessage">
+              <p>{{ errorMessage }}</p>
+          </div>
         
         </form>
         
@@ -24,18 +27,55 @@
 <script>
 export default {
   name: 'LoginComponent',
-  data(){
-    return{
-        input:{
-            email: "",
-            password: ""
-        }
-    }
-    
+  data() {
+    return {
+      input: {
+        email: '',
+        password: '',
+      },
+      errorMessage: '',
+    };
   },
   methods:{
 
     LogIn() {
+
+
+      fetch('http://localhost:3000/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          email: this.input.email,
+          password: this.input.password,
+        }),
+      })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          return response.text().then(errorMessage => {
+          throw new Error(errorMessage);
+        });
+        }
+      })
+      .then(data => {
+        this.$router.push("/");
+        console.log('Login successful', data);
+      })
+      .catch(error => {
+        if (error.message.includes('User not found')) {
+            this.errorMessage = 'User not found';
+          } else if (error.message.includes('Invalid password')) {
+            this.errorMessage = 'Invalid password';
+          } else {
+            this.errorMessage = 'An error occurred during login';
+          }
+        console.log('Login error', error.message);
+      });
+    
     }
   }
 

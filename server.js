@@ -37,7 +37,7 @@ app.post('/auth/signup', async(req, res) => {
         );
         
         if (existingUser.rows.length > 0) {
-            
+            console.log('email in use')
             res.status(400).json({ error: "Email already in use" });
             return;
         }
@@ -56,6 +56,40 @@ app.post('/auth/signup', async(req, res) => {
             .send;
     } catch (err) {
         console.error(err.message);
-        res.status(400).send(err.message);
+        res.status(401).json({ error: err.message });
     }
 });
+
+
+app.post('/auth/login', async (req, res) => {
+    try {
+      const { email, password } = req.body;
+  
+      const user = await pool.query(
+        'SELECT * FROM users WHERE email = $1',[email]);
+  
+      if (user.rows.length === 0) {
+        console.log('user not found')
+        return res.status(401).json({ error: 'User not found', message: 'User not found' });
+      }
+  
+      const validPassword = await bcrypt.compare(password, user.rows[0].password);
+  
+      if (!validPassword) {
+        console.log('incorrect password')
+        return res.status(401).json({ error: 'Invalid password', message: 'Invalid password'});
+        
+      }
+  
+      const token = await generateJWT(user.rows[0].id);
+  
+      res
+        .status(200)
+        .cookie('jwt', token, { maxAge: 6000000, httpOnly: true })
+        .json({ user_id: user.rows[0].id });
+    } catch (err) {
+      console.error(err.message);
+      res.status(401).json({ error: err.message });
+    }
+  });
+  
