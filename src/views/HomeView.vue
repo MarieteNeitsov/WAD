@@ -12,7 +12,7 @@
               <div class="item" v-for="post in posts" :key="post.id">
                 <router-link :to="'/api/apost/' + post.id">
                   
-                  <span class="title"> <b></b> {{ post.post_date }} </span><br />
+                  <span class="date"> <b></b> {{ post.post_date }} </span><br />
                   <span class="body"> <b></b> {{ post.body }} </span> <br />
                 </router-link>
               </div>
@@ -61,12 +61,6 @@
           console.log("error logout");
         });
       },
-      // fetchPosts() {
-      //   fetch(`http://localhost:3000/api/posts/`)
-      //     .then((response) => response.json())
-      //     .then((data) => (this.posts = data))
-      //     .catch((err) => console.log(err.message));
-      // },
       getPosts() {
       fetch(`http://localhost:3000/api/posts/`)
         .then((response) => 
@@ -76,9 +70,28 @@
         .catch((err) => 
               console.log(err.message));
     },
+    deleteAllPosts() {
+      this.posts.forEach(post => {
+        fetch(`http://localhost:3000/api/posts/${post.id}`, {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+        })
+          .then(response => {
+            if (response.ok) {
+              console.log(`Post with ID ${post.id} deleted successfully`);
+            } else {
+              throw new Error(`Failed to delete post`);
+            }
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      });
+      console.log('Deletion complete');
+      window.location.reload();
+    },
     },
     mounted() {
-    //this.fetchPosts();
     this.getPosts();
     console.log("mounted");
     

@@ -11,14 +11,12 @@
      </div>
 </template>
 <script>
-
-
 export default {
   name: "AddPost",
   data() {
     return {
       post: {
-        post_date: Date ,
+        post_date: Date,
         body: "",
       },
     };
@@ -31,7 +29,6 @@ export default {
         body: this.post.body,
       };
       
-      
       fetch("http://localhost:3000/api/posts", {
         method: "POST",
         headers: {
@@ -42,7 +39,6 @@ export default {
       .then((response) => {
         this.$router.push("/");
         console.log(response.data);
-        
       })
       .catch((e) => {
         console.log(e);
