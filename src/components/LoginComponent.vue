@@ -62,8 +62,9 @@ export default {
         }
       })
       .then(data => {
-        this.$router.push("/");
         console.log('Login successful', data);
+        this.$router.push("/");
+        
       })
       .catch(error => {
         if (error.message.includes('User not found')) {

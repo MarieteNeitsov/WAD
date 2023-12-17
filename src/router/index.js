@@ -4,15 +4,20 @@ import LoginView from '../views/LoginView.vue'
 import ContactView from '../views/ContactView.vue'
 import SignupView from '../views/SignupView.vue'
 import AddPostView from '../views/AddPostView.vue';
+import auth from "../auth";
 const routes = [
   {
-    path: '/',
-    redirect: '/LoginView',
-  },
-  {
-    path: '/Homeview',
-    name: 'home',
-    component: HomeView
+    path: "/",
+    name: "home",
+    component: HomeView,
+    beforeEnter: async(to, from, next) => {
+      let authResult = await auth.authenticated();
+        if (!authResult) {
+          next('/LoginView')
+        } else {
+          next();
+          }
+    }
   },
   { 
   path: '/LoginView', 
@@ -30,6 +35,7 @@ const routes = [
     path: '/AddPostView',
     component: AddPostView
   },
+  
   
 ]
 
