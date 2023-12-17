@@ -5,7 +5,22 @@
       <div class="container">
         <button v-if = "authResult" @click="Logout" class="center">Logout</button>
       </div>
-      <HomeComponent v-for="post in posts" :key="post.id" :post="post"></HomeComponent>
+      <div class="AllPosts">
+        <div id="post-list">
+          <h1>All Posts</h1>
+            <ul>
+              <div class="item" v-for="post in posts" :key="post.id">
+                <!-- / We are putting an anchor for each post, when we click on it, we will be directed to the specific post view (/apost/) /  -->
+                <router-link :to="'/api/apost/' + post.id">
+                  
+                  <span class="title"> <b></b> {{ post.post_date }} </span><br />
+                  <span class="body"> <b></b> {{ post.body }} </span> <br />
+                </router-link>
+              </div>
+            </ul>
+          </div>
+      </div>
+      <!-- <HomeComponent v-for="post in posts" :key="post.id" :post="post"></HomeComponent> -->
       <button @click='this.$router.push("/AddPostView")'>Add Post </button>
       <button @click="resetLikes">Delete all</button>
       <FooterComponent></FooterComponent>
@@ -15,7 +30,7 @@
   <script>
   import auth from "@/auth";
   import HeaderComponent from '@/components/HeaderComponent.vue'
-  import HomeComponent from '@/components/HomeComponent.vue'
+/*   import HomeComponent from '@/components/HomeComponent.vue' */
   import FooterComponent from '@/components/FooterComponent.vue'
 
   
@@ -29,7 +44,7 @@
   },
     components: {
       HeaderComponent,
-      HomeComponent,
+      // HomeComponent,
       FooterComponent
     },
     
@@ -84,3 +99,39 @@
   }
 
   </script>
+<style scoped>
+h1 {
+  font-size: 20px;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.item {
+  background: rgb(189, 212, 199);
+  margin-bottom: 5px;
+  padding: 3px 5px;
+  border-radius: 10px;
+}
+#post-list {
+  background: #6e8b97;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  margin: auto;
+  width: 50%;
+  border-radius: 20px;
+}
+#post-list ul {
+  padding: 0;
+}
+#post-list li {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.7);
+}
+</style>
