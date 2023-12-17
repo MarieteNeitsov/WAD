@@ -22,7 +22,7 @@
       </div>
       <!-- <HomeComponent v-for="post in posts" :key="post.id" :post="post"></HomeComponent> -->
       <button @click='this.$router.push("/AddPostView")'>Add Post </button>
-      <button @click="resetLikes">Delete all</button>
+      <button @click="deleteAllPosts">Delete all</button>
       <FooterComponent></FooterComponent>
    </div>
   </template>

@@ -1,17 +1,17 @@
 <template>
     <div class="wrapper">
-        <form class="formcard">
+        <div class="card">
             <div class="label-and-input">
                 <h1>Add Post</h1>
                 <label for="body">Body: </label>
                 <input name="body" type="text" id="body" required v-model="post.body" />
                 <button @click="addPost" class="addPost">Add Post</button>
             </div>
-        </form>
+        </div>
      </div>
 </template>
 <script>
-const currentDate = new Date().toISOString();
+
 // export default{
 //     name: 'AddpostComponent',
 // }
@@ -20,19 +20,17 @@ export default {
   data() {
     return {
       post: {
-        post_date: currentDate ,
-        body: '',
-        urllink: '',
+        post_date: Date ,
+        body: "",
       },
     };
   },
   methods: {
     addPost() {
-      
+      //const currentDate = new Date().toISOString();
       var data = {
         post_date: this.post.post_date,
         body: this.post.body,
-        urllink: this.post.urllink,
       };
       
       // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
@@ -44,9 +42,9 @@ export default {
         body: JSON.stringify(data),
       })
       .then((response) => {
+        this.$router.push("/");
         console.log(response.data);
         // redirect to /allposts view
-        this.$router.push("/");
       })
       .catch((e) => {
         console.log(e);

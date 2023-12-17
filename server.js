@@ -101,7 +101,8 @@ app.get('/api/posts', async(req, res) => {
       } catch (err) {
           console.error(err.message);
       }
-  }); 
+  });
+
 
 app.listen(port, () => {
     console.log("Server is listening to port " + port)

@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <form class="formcard">
+        <div class="card">
             <div class="label-and-input">
                 <label for="email">Email: </label>  
                 <input type="email" id="email" required v-model="input.email" />
@@ -15,7 +15,7 @@
               <p>{{ errorMessage }}</p>
           </div>
         
-        </form>
+        </div>
         
 
     </div>
