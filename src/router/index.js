@@ -7,6 +7,10 @@ import AddPostView from '../views/AddPostView.vue';
 const routes = [
   {
     path: '/',
+    redirect: '/LoginView',
+  },
+  {
+    path: '/Homeview',
     name: 'home',
     component: HomeView
   },
@@ -26,6 +30,7 @@ const routes = [
     path: '/AddPostView',
     component: AddPostView
   },
+  
 ]
 
 const router = createRouter({
