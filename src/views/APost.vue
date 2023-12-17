@@ -42,14 +42,12 @@ export default {
   methods: {
     fetchAPost(id) {
       console.log(id)
-      // fetch one post with the specied id (id)
       fetch(`http://localhost:3000/api/posts/${id}`)
         .then((response) => response.json())
         .then((data) => (this.post = data))
         .catch((err) => console.log(err.message));
     },
     updatePost() {
-      // using Fetch - put method - updates a specific post based on the passed id and the specified body
       fetch(`http://localhost:3000/api/posts/${this.post.id}`, {
         method: "PUT",
         headers: {
@@ -59,8 +57,6 @@ export default {
       })
         .then((response) => {
           console.log(response.data);
-          //this.$router.push("/apost/" + this.post.id);
-          // We are using the router instance of this element to navigate to a different URL location
           this.$router.push("/");
         })
         .catch((e) => {
@@ -68,14 +64,12 @@ export default {
         });
     },
     deletePost() {
-      // using Fetch - delete method - delets a specific post based on the passed id
       fetch(`http://localhost:3000/api/posts/${this.post.id}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       })
         .then((response) => {
           console.log(response.data);
-          // We are using the router in stance of this element to navigate to a different URL location
           this.$router.push("/");
         })
         .catch((e) => {
@@ -84,10 +78,6 @@ export default {
     },
   },
   mounted() {
-    // call fetchAPost() when this element mounts, and pass to it a route parameter  (id)
-    // Route parameters (this.$route.params.id) are named URL segments that are used to capture the values specified at their 
-    // position in the URL. The captured values are populated in the req.params object, with the name 
-    // of the route parameter specified in the path as their respective keys
     this.fetchAPost(this.$route.params.id);
     console.log("mounted")
   },

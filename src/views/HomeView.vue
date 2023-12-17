@@ -10,7 +10,6 @@
           <h1>All Posts</h1>
             <ul>
               <div class="item" v-for="post in posts" :key="post.id">
-                <!-- / We are putting an anchor for each post, when we click on it, we will be directed to the specific post view (/apost/) /  -->
                 <router-link :to="'/api/apost/' + post.id">
                   
                   <span class="title"> <b></b> {{ post.post_date }} </span><br />
@@ -20,7 +19,6 @@
             </ul>
           </div>
       </div>
-      <!-- <HomeComponent v-for="post in posts" :key="post.id" :post="post"></HomeComponent> -->
       <button @click='this.$router.push("/AddPostView")'>Add Post </button>
       <button @click="deleteAllPosts">Delete all</button>
       <FooterComponent></FooterComponent>
@@ -30,7 +28,6 @@
   <script>
   import auth from "@/auth";
   import HeaderComponent from '@/components/HeaderComponent.vue'
-/*   import HomeComponent from '@/components/HomeComponent.vue' */
   import FooterComponent from '@/components/FooterComponent.vue'
 
   
@@ -44,28 +41,20 @@
   },
     components: {
       HeaderComponent,
-      // HomeComponent,
       FooterComponent
     },
     
-    /*computed:{
-      ...mapState(['posts'])
-    },
-    created(){
-      this.$store.dispatch('fetchPosts')
-    },*/
+
     methods:{
         Logout() {
         fetch("http://localhost:3000/auth/logout", {
-            credentials: 'include',  //  Don't forget to specify this if you need cookies
+            credentials: 'include',
         })
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
           console.log('jwt removed');
-          //console.log('jwt removed:' + auth.authenticated());
           this.$router.push("/LoginView");
-          //location.assign("/");
         })
         .catch((e) => {
           console.log(e);
@@ -73,8 +62,6 @@
         });
       },
       // fetchPosts() {
-      //   // You should remember how Fetch API works
-      //   // fetch is a GET request unless stated otherwise. Therefore, it will fetch all posts from the database
       //   fetch(`http://localhost:3000/api/posts/`)
       //     .then((response) => response.json())
       //     .then((data) => (this.posts = data))
