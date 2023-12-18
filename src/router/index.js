@@ -22,7 +22,8 @@ const routes = [
   },
   { 
   path: '/LoginView', 
-  component: LoginView
+  component: LoginView,
+  
   },
   {
     path: '/ContactView', 
@@ -34,7 +35,15 @@ const routes = [
   },
   {
     path: '/AddPostView',
-    component: AddPostView
+    component: AddPostView,
+    // beforeEnter: async(to, from, next) => {
+    //   let authResult = await auth.authenticated();
+    //     if (!authResult) {
+    //       next('/LoginView')
+    //     } else {
+    //       next();
+    //       }
+    // }
   },
   {
     path: "/api/apost/:id",
